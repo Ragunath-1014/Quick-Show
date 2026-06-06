@@ -189,9 +189,23 @@ function Seats({ showId, refreshSeats }) {
         }
     }
 
+    const date = new Date(showDetails.date);
+    const day = date.getDate();
+    const month = date.toLocaleString("en-US", { month: "short" });
+    const weekday = date.toLocaleString("en-US", { weekday: "short" });
+
     return (
         <div>
-            <div className="max-h-[calc(100vh-210px)] overflow-y-auto mt-5 px-5 pb-[105px] sm:pb-5">
+            <div className="max-h-[calc(100vh-180px)] overflow-y-auto mt-5 px-5 pb-[105px] sm:pb-6">
+
+                {/* SHOW INFO */}
+                <div className="text-xs sm:text-sm text-black text-center px-5">
+                    <p className="underline underline-offset-1">
+                        {`${showDetails.movie.title} - ${weekday} ${day} ${month}, ${showDetails.time} at ${showDetails.theatre.theatreName}`}
+                    </p>
+                </div>
+
+                {/* SEATS UI */}
                 <div className="overflow-x-auto">
                     {showDetails.seats.map((seatsBySection) => (
                         <div

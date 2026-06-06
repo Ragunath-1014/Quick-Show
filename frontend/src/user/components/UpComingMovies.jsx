@@ -26,7 +26,12 @@ function UpComingMovies({ upcomingMovie }) {
                     <div className="relative" key={movie._id}>
                         <MovieCard movie={movie}
                         />
-                        <div className="bg-gray-400/20 w-24 py-1 rounded-md absolute top-3 left-3">
+                        <div
+                            className="bg-gray-400/30 sm:bg-gray-400/20 
+                            w-24 py-1 
+                            rounded-md absolute 
+                            top-3 left-3"
+                        >
                             <p className="text-sm text-center text-white font-medium">
                                 {formattedDate}
                             </p>

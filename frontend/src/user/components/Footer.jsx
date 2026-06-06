@@ -22,7 +22,7 @@ function Footer() {
         const element = document.getElementById(id);
 
         if (element) {
-            const yOffset = -140;
+            const yOffset = -160;
             const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
             window.scrollTo({
@@ -214,13 +214,13 @@ function Footer() {
                             <h1>
                                 Browse All
                             </h1>
-                            <div className="flex flex-col gap-1 text-blue-600 mt-2">
-                                <a href="#nowShowing">
+                            <div className="flex flex-col gap-1 text-blue-600 mt-2 cursor-pointer">
+                                <p onClick={() => handleScroll("nowShowing")}>
                                     Now Showing
-                                </a>
-                                <a href="#upcomingMovies">
+                                </p>
+                                <p onClick={() => handleScroll("upcomingMovies")}>
                                     Upcoming Movies
-                                </a>
+                                </p>
                             </div>
                         </div>
 
