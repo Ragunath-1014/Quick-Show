@@ -196,7 +196,7 @@ function Seats({ showId, refreshSeats }) {
 
     return (
         <div>
-            <div className="max-h-[calc(100vh-180px)] overflow-y-auto mt-5 px-5 pb-[105px] sm:pb-6">
+            <div className="max-h-[calc(100vh-200px)] overflow-y-auto mt-5 px-5 pb-[105px] sm:pb-6">
 
                 {/* SHOW INFO */}
                 <div className="text-xs sm:text-sm text-black text-center px-5">
