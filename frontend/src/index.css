@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+    color: black;
+
+    /* HIDE SCROLLBAR FOR IE/OLD EDGE */
+    -ms-overflow-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    /* HIDE SCROLLBAR FOR FIREFOX */
+    scrollbar-width: none;
+}
+
+/* HIDE SCROLLBAR FOR CHROME, SAFARI, EDGE */
+::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes scroll-x {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-16px);
+        opacity: 0;
+    }
+}
+
+.animate-scroll-x {
+    animation: scroll-x 1.5s infinite;
+}
+
+.slider__swiper .swiper-button-next,
+.slider__swiper .swiper-button-prev {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.slider__swiper .swiper-button-prev {
+    left: 10px !important;
+}
+
+.slider__swiper .swiper-button-next {
+    right: 10px !important;
+}
+
+.slider__swiper .swiper-pagination-bullet-active {
+    background-color: white;
+    width: 20px;
+    height: 5px;
+    border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.custom-toast {
+    border-radius: 6px;
+    padding: 16px;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.success-toast {
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.error-toast {
+    background: #fef2f2;
+    color: #7f1d1d;
+}
+
+.Toastify__toast-container {
+    top: 10px !important;
+}
+
+@keyframes scrollArrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+}
+
+.animate-scroll-arrow {
+    animation: scrollArrow 2s infinite;
+}
+
+.animate-scroll-arrow {
+    animation: scrollArrow 2s infinite;
+}
