@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
 
-function UpComingMovies({ upcomingMovie }) {
+function UpComingMovies({ upcomingMovies }) {
 
     return (
         <div
@@ -15,7 +15,7 @@ function UpComingMovies({ upcomingMovie }) {
             "
             id="upcomingMovies"
         >
-            {upcomingMovie.map((movie) => {
+            {upcomingMovies.map((movie) => {
                 const date = new Date(movie.releaseDate);
                 const formattedDate = date.toLocaleDateString("en-US", {
                     month: "short",

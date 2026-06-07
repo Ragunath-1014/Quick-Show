@@ -121,10 +121,10 @@ function AboutMovie() {
                 </div>
 
                 {/* SCROLLABLE CONTENT */}
-                <div className="px-5 pb-10 max-h-[65vh] overflow-y-auto">
+                <div className="pb-10 max-h-[65vh] overflow-y-auto">
 
                     {/* DESCRIPTION */}
-                    <div id="description-mobile" className="mt-5 scroll-mt-2 text-sm">
+                    <div id="description-mobile" className="mt-5 scroll-mt-2 text-sm mx-5">
                         <h2 className="font-semibold text-base">
                             Description
                         </h2>
@@ -167,10 +167,10 @@ function AboutMovie() {
 
                     {/* CAST */}
                     <div id="castAndCrew-mobile" className="mt-8 scroll-mt-2">
-                        <h2 className="font-semibold text-base">
+                        <h2 className="font-semibold text-base mx-5">
                             Cast & Crew
                         </h2>
-                        <div className="overflow-x-auto flex gap-5 mt-4">
+                        <div className="overflow-x-auto flex gap-3 mt-4">
                             {movie.cast.map((cast) => (
                                 <div
                                     key={cast._id}
@@ -192,7 +192,7 @@ function AboutMovie() {
                     </div>
 
                     {/* TRAILER / VIDEOS */}
-                    <div id="videos-mobile" className="mt-8 scroll-mt-2">
+                    <div id="videos-mobile" className="mt-8 scroll-mt-2 mx-5">
                         <h2 className="font-semibold text-base">
                             Videos
                         </h2>
@@ -224,7 +224,7 @@ function AboutMovie() {
                     </div>
 
                     {/* POSTERS */}
-                    <div id="posters-mobile" className="mt-8 scroll-mt-2">
+                    <div id="posters-mobile" className="mt-8 scroll-mt-2 mx-5">
                         <h2 className="font-semibold text-base">
                             Posters
                         </h2>

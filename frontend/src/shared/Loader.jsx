@@ -18,7 +18,7 @@ function Loader({ loadingMessage }) {
                     border-2 border-transparent 
                     border-t-black"
                 />
-                <p className="test-sm font-medium">
+                <p className="test-sm text-center font-medium px-5">
                     {loadingMessage}
                 </p>
             </div>

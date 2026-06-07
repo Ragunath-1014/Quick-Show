@@ -11,8 +11,21 @@ function Home() {
   const [movies, setMovies] = useState(null);
   const [sliderMovie, setSliderMovies] = useState(null);
   const [hideScrollMessage, setHideScrollMessage] = useState(false);
-  const [upcomingMovie, setUpcomingMovies] = useState(null);
+  const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState("Loading");
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem("quickshow-visited");
+
+    if (!hasVisited) {
+      setLoadingMessage(
+        "Backend hosted on Render free tier. Initial load may take a few seconds."
+      );
+
+      sessionStorage.setItem("quickshow-visited", "true");
+    }
+  }, []);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -41,12 +54,13 @@ function Home() {
   }, []);
 
   if (loading || !movies) {
-    return <Loader loadingMessage={"Loading"} />;
+    return <Loader loadingMessage={loadingMessage} />;
   }
 
   return (
     <div className="relative">
 
+      {/* SLIDER */}
       <Slider sliderMovie={sliderMovie} />
 
       {/* HEADER */}
@@ -105,18 +119,22 @@ function Home() {
       </div>
 
       {/* UPCOMING MOVIES */}
-      <div className="flex flex-col items-center mt-6">
-        <h1 className="text-2xl font-bold">
-          Upcoming Movies
-        </h1>
+      {upcomingMovies.length > 0 &&
+        <div className="flex flex-col items-center mt-6">
+          <h1 className="text-2xl font-bold">
+            Upcoming Movies
+          </h1>
 
-        <p className="text-gray-500 text-xs text-center sm:text-sm font-medium">
-          Discover what's next on the big screen soon
-        </p>
-      </div>
+          <p className="text-gray-500 text-xs text-center sm:text-sm font-medium">
+            Discover what's next on the big screen soon
+          </p>
+        </div>
+      }
 
-      <UpComingMovies upcomingMovie={upcomingMovie} />
+      {/* UPCOMING MOVIES */}
+      <UpComingMovies upcomingMovies={upcomingMovies} />
 
+      {/* FOOTER */}
       <Footer />
 
     </div>
