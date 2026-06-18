@@ -13,18 +13,18 @@ function Bookings() {
     const { user } = useContext(AuthContext);
 
     const [bookings, setBookings] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [showTicketDetails, setShowTicketDetails] = useState(null);
 
     useEffect(() => {
-        const fetchBookingDetail = async () => {
-            if (!user) {
-                setBookings([]);
-                setLoading(false);
-                return;
-            }
+        if (!user) {
+            setBookings([]);
+            return;
+        }
 
+        const fetchBookingDetail = async () => {
             try {
+                setLoading(true);
                 const res = await api.get("/booking/my-bookings");
                 setBookings(res.data);
             }
@@ -37,7 +37,7 @@ function Bookings() {
         };
 
         fetchBookingDetail();
-    }, []);
+    }, [user]);
 
     if (loading) {
         return <Loader loadingMessage={"Loading"} />;
@@ -91,7 +91,7 @@ function Bookings() {
                     return (
                         <div
                             key={booking._id}
-                            className="flex justify-center py-2 mt-3"
+                            className="flex justify-center py-1 my-4"
                         >
 
                             {/* BOOKING CARD */}

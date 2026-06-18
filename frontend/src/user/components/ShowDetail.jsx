@@ -112,9 +112,12 @@ const ShowDetail = ({ movieId }) => {
             <div className="px-5">
                 {filteredShows.length === 0
                     ? (
-                        <p className="flex items-center justify-center h-[30vh] font-medium text-lg">
-                            Coming Soon!
-                        </p>
+                        <div
+                            className="flex items-center justify-center h-[calc(100dvh-450px)]">
+                            <p className="font-medium text-lg">
+                                Coming Soon!
+                            </p>
+                        </div>
                     )
                     : (
                         filteredShows.map((show) => (

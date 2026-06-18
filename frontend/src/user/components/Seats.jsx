@@ -196,14 +196,18 @@ function Seats({ showId, refreshSeats }) {
 
     return (
         <div>
-            <div className="max-h-[calc(100vh-200px)] overflow-y-auto mt-5 px-5 pb-[105px] sm:pb-6">
+            {/* SHOW INFO */}
+            <div className="text-xs sm:text-sm text-black text-center px-5">
+                <p className="underline underline-offset-1">
+                    {`${showDetails.movie.title} - ${weekday} ${day} ${month}, ${showDetails.time} at ${showDetails.theatre.theatreName}`}
+                </p>
+            </div>
 
-                {/* SHOW INFO */}
-                <div className="text-xs sm:text-sm text-black text-center px-5">
-                    <p className="underline underline-offset-1">
-                        {`${showDetails.movie.title} - ${weekday} ${day} ${month}, ${showDetails.time} at ${showDetails.theatre.theatreName}`}
-                    </p>
-                </div>
+            <div
+                className="max-h-[calc(100dvh-240px)] md:max-h-[calc(100dvh-230px)] 
+                overflow-y-auto mt-3 
+                px-4 sm:px-5"
+            >
 
                 {/* SEATS UI */}
                 <div className="overflow-x-auto">
@@ -214,7 +218,7 @@ function Seats({ showId, refreshSeats }) {
                         >
 
                             {/* SECTION HEADER */}
-                            <span className="text-sm sm:text-base font-semibold mt-5">
+                            <span className="text-sm sm:text-base font-semibold mt-4">
                                 {seatsBySection.section.toUpperCase()} : ₹{seatsBySection.price}
                             </span>
 
@@ -231,7 +235,7 @@ function Seats({ showId, refreshSeats }) {
                                     </span>
 
                                     {/* SEATS */}
-                                    <div className="flex items-center mt-3 gap-3">
+                                    <div className="flex items-center mt-2 gap-2 lg:mt-3 lg:gap-3">
                                         {row.seats.map((seat, index) => (
                                             <button
                                                 key={seat._id}

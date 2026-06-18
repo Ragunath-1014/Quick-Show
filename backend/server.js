@@ -24,7 +24,7 @@ const server = http.createServer(app);
 // SOCKET.IO
 const io = new Server(server, {
     cors: {
-        origin: "https://quickshow-03.vercel.app",
+        origin: "https://quickshow-online.vercel.app",
         credentials: true
     }
 });
@@ -64,7 +64,7 @@ io.on("connection", (socket) => {
 // MIDDLEWARE
 app.use(
     cors({
-        origin: "https://quickshow-03.vercel.app",
+        origin: "https://quickshow-online.vercel.app",
         credentials: true
     })
 );
