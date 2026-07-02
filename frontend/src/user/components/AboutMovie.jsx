@@ -170,7 +170,7 @@ function AboutMovie() {
                         <h2 className="font-semibold text-base mx-5">
                             Cast & Crew
                         </h2>
-                        <div className="overflow-x-auto flex gap-3 mt-4">
+                        <div className="overflow-x-auto flex gap-3 mt-4 px-3">
                             {movie.cast.map((cast) => (
                                 <div
                                     key={cast._id}

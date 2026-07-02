@@ -137,7 +137,7 @@ function Footer() {
                         />
                     </div>
 
-                    <p className="border-t-2 border-gray-300/80 my-2" />
+                    <p className="border-t-2 border-gray-300/80 my-3" />
 
                     {theatre &&
                         <div className="mt-2">
@@ -171,7 +171,7 @@ function Footer() {
                         />
                     </div>
 
-                    <p className="border-t-2 border-gray-300/80 my-2" />
+                    <p className="border-t-2 border-gray-300/80 my-3" />
 
                     {enquiry &&
                         <div className="text-blue-600 font-medium px-5 mt-2">
@@ -205,7 +205,7 @@ function Footer() {
                         </div>
                     </div>
 
-                    <p className="border-t-2 border-gray-300/80 my-8" />
+                    <p className="border-t-2 border-gray-300/80 my-5" />
 
                     <div className="font-medium flex items-start gap-12 lg:gap-32 xl:gap-40">
 

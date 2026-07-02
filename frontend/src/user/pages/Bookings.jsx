@@ -13,7 +13,7 @@ function Bookings() {
     const { user } = useContext(AuthContext);
 
     const [bookings, setBookings] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [showTicketDetails, setShowTicketDetails] = useState(null);
 
     useEffect(() => {
@@ -24,7 +24,6 @@ function Bookings() {
 
         const fetchBookingDetail = async () => {
             try {
-                setLoading(true);
                 const res = await api.get("/booking/my-bookings");
                 setBookings(res.data);
             }
@@ -79,6 +78,7 @@ function Bookings() {
                     const day = date.getDate();
                     const month = date.toLocaleString("en-US", { month: "short" });
                     const weekday = date.toLocaleString("en-US", { weekday: "short" });
+                    
                     let sortedSeats = [];
 
                     if (booking.seats) {

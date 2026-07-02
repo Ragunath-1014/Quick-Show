@@ -27,9 +27,9 @@ function Seats({ showId, refreshSeats }) {
     const [theatreDetails, setTheatreDetails] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const stored = JSON.parse(localStorage.getItem("selectedSeats"));
-
     let DefaultButtonText = false;
+
+    const stored = JSON.parse(localStorage.getItem("selectedSeats"));
 
     if (stored && Array.isArray(stored.seats)) {
         const isSame = stored.seats.length === selectedSeats.length &&
@@ -123,7 +123,7 @@ function Seats({ showId, refreshSeats }) {
 
     const handleLockSeats = async () => {
         try {
-            await api.post("/seat/lock", { showId, seats: selectedSeats });
+            const res = await api.post("/seat/lock", { showId, seats: selectedSeats });
 
             const expiry = Date.now() + 5 * 60 * 1000;
 
@@ -134,12 +134,13 @@ function Seats({ showId, refreshSeats }) {
                 details: theatreDetails,
                 expiry
             }));
+
+            if (res.status === 200) {
+                navigate("/review/booking");
+            }
         }
         catch (err) {
-            console.log(err.message);
-
-            toast.dismiss();
-            toast.error("Something went wrong");
+            console.log("Selected seat is already locked by someone!");
         }
     }
 
@@ -176,16 +177,15 @@ function Seats({ showId, refreshSeats }) {
             }
 
             await handleLockSeats();
-
-            setLoading(false);
-
-            navigate("/review/booking");
         }
         catch (err) {
             console.log(err.message);
 
             toast.dismiss();
             toast.error("Something went wrong");
+        }
+        finally {
+            setLoading(false);
         }
     }
 
@@ -204,21 +204,21 @@ function Seats({ showId, refreshSeats }) {
             </div>
 
             <div
-                className="max-h-[calc(100dvh-240px)] md:max-h-[calc(100dvh-230px)] 
-                overflow-y-auto mt-3 
-                px-4 sm:px-5"
+                className="max-h-[calc(100dvh-225px)] 
+                md:max-h-[calc(100dvh-210px)] 
+                overflow-y-auto mt-3"
             >
 
                 {/* SEATS UI */}
-                <div className="overflow-x-auto">
+                <div className="w-fit mx-auto px-3">
                     {showDetails.seats.map((seatsBySection) => (
                         <div
                             key={seatsBySection._id}
-                            className="flex flex-col items-center min-w-max"
+                            className="flex flex-col items-center"
                         >
 
                             {/* SECTION HEADER */}
-                            <span className="text-sm sm:text-base font-semibold mt-4">
+                            <span className="text-sm sm:text-base font-semibold mt-5">
                                 {seatsBySection.section.toUpperCase()} : ₹{seatsBySection.price}
                             </span>
 
@@ -230,7 +230,7 @@ function Seats({ showId, refreshSeats }) {
                                 >
 
                                     {/* ROW NAME (Example - A B C) */}
-                                    <span className="text-sm sm:text-base font-semibold mt-3 w-8">
+                                    <span className="text-sm sm:text-base font-semibold w-8">
                                         {row.row}
                                     </span>
 
@@ -240,14 +240,14 @@ function Seats({ showId, refreshSeats }) {
                                             <button
                                                 key={seat._id}
                                                 className={`
-                                                w-8 h-8
+                                                w-9 h-9
                                                 sm:w-10 sm:h-10
                                                 border border-gray-300
                                                 rounded-md shrink-0 
                                                 text-xs sm:text-sm
                                                 flex items-center
-                                                justify-center
-                                                ${index === 10 ? "ml-24" : ""}
+                                                justify-center transition-all
+                                                ${index === 10 ? "ml-12 sm:ml-14 md:ml-16" : ""}
                                                 ${selectedSeats.includes(seat.seatNumber)
                                                         ? "bg-purple-500 border-purple-500 text-white"
                                                         : ""
@@ -270,15 +270,15 @@ function Seats({ showId, refreshSeats }) {
                             ))}
                         </div>
                     ))}
-                </div>
 
-                {/* SCREEN IMAGE*/}
-                <div className="flex justify-center pt-10">
-                    <img
-                        src={screen}
-                        alt="screen"
-                        className="w-full max-w-3xl object-contain"
-                    />
+                    {/* SCREEN IMAGE*/}
+                    <div className="pt-12 pb-6 flex justify-center">
+                        <img
+                            src={screen}
+                            alt="screen"
+                            className="w-full max-w-2xl md:max-w-3xl object-contain"
+                        />
+                    </div>
                 </div>
             </div>
 

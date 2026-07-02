@@ -1,6 +1,6 @@
 # QuickShow – Movie Ticket Booking System
 
-QuickShow is a full-stack movie ticket booking web application built using the MERN stack.
+QuickShow is a Full Stack Movie Ticket Booking Web Application built using the MERN stack.
 
 It allows users to browse movies, view show timings, select seats in real-time, make secure payments, and track their booking history.
 
@@ -18,20 +18,20 @@ https://quickshow-online.vercel.app
 
 ## Preview
 
-<table>
-  <tr>
-    <td><br><b>1. Home Page</b><br><br><img src="frontend/src/assets/images/HomePage.png" width="600"></td>
-    <td><br><b>2. Movie Detail Page</b><br><br><img src="frontend/src/assets/images/MovieDetailPage.png" width="600"></td>
-  </tr>
-  <tr>
-    <td><br><b>3. Seat Selection Page</b><br><br><img src="frontend/src/assets/images/SeatSelectionPage.png" width="600"></td>
-    <td><br><b>4. Review Booking Page</b><br><br><img src="frontend/src/assets/images/ReviewBookingPage.png" width="600"></td>
-  </tr>
-  <tr>
-    <td><br><b>5. My Bookings Page</b><br><br><img src="frontend/src/assets/images/MyBookingsPage.png" width="600"></td>
-    <td></td>
-  </tr>
-</table>
+### 1. Home Page
+<img src="frontend/src/assets/images/HomePage.png" alt="QuickShow Home Page" width="600">
+
+### 2. Movie Detail Page
+<img src="frontend/src/assets/images/MovieDetailPage.png" alt="QuickShow Movie Detail Page" width="600">
+
+### 3. Seat Selection Page
+<img src="frontend/src/assets/images/SeatSelectionPage.png" alt="QuickShow Seat Selection Page" width="600">
+
+### 4. Review Booking Page
+<img src="frontend/src/assets/images/ReviewBookingPage.png" alt="QuickShow Review Booking Page" width="600">
+
+### 5. My Bookings Page
+<img src="frontend/src/assets/images/MyBookingsPage.png" alt="QuickShow My Bookings Page" width="600">
 
 ---
 
@@ -238,12 +238,10 @@ This acts as a safety backup system.
 
 - Admin dashboard for managing movies and shows
 - Email booking confirmations
-- QR-based ticket entry system
 - Google login (OAuth)
 - Theatre seat layout customization panel
 - Location-based movie suggestions
 - Booking analytics dashboard
-- Progressive Web App (PWA) support
 
 ---
 

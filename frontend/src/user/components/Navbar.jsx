@@ -24,11 +24,13 @@ function Navbar() {
 
     const handleLogout = async () => {
         setShowProfile(false);
-        
+
         try {
             await api.get("/auth/logout");
 
             setUser(null);
+
+            navigate("/")
 
             toast.dismiss();
             toast.success("Logged out successfully");
