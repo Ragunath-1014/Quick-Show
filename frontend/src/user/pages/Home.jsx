@@ -13,17 +13,6 @@ function Home() {
   const [hideScrollMessage, setHideScrollMessage] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [loadingMessage, setLoadingMessage] = useState("Loading");
-
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem("quickshow-visited");
-
-    if (!hasVisited) {
-      setLoadingMessage("Backend hosted on Render. Initial load may take a few seconds.");
-
-      sessionStorage.setItem("quickshow-visited", "true");
-    }
-  }, []);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -52,7 +41,7 @@ function Home() {
   }, []);
 
   if (loading || !movies) {
-    return <Loader loadingMessage={loadingMessage} />;
+    return <Loader loadingMessage={"Loading QuickShow"} />;
   }
 
   return (
