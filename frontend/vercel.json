@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/api/:path*",
-            "destination": "https://quick-show-1ii5.onrender.com/api/:path*"
+            "destination": "https://quick-show-production.up.railway.app/api/:path*"
         },
         {
             "source": "/(.*)",
